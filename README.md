@@ -1,3 +1,3 @@
-# Formal Language and Theory of Computation
+# _Formal Language and Theory of Computation_
 
-- [Chapter1 Regular Language](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter1.md)
+- _[Chapter1 - Regular Language](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter1.md)_
