@@ -43,15 +43,33 @@ A ◦ B = {xy | x ∈ A and y ∈ B};
     > =A<sup>0</sup> ∪ A<sup>1</sup> ∪ A<sup>2</sup> ∪ A<sup>3</sup> ...
         
 - The class of regular languages is closed under the union operation.<br/>
-    >**PRROF:** <br/>
-    ```
-    Let M1 recognize A1, where M1 = (Q1, Σ, δ1, q1, F1), 
-    and M2 recognize A2, where M2 = (Q2, Σ, δ2, q2, F2).
-    Construct M to recognize A1 ∪ A2, where M = (Q, Σ, δ, q0, F ).
-        1.Q = {(r1, r2)| r1 ∈ Q1 and r2 ∈ Q2}.
-        2.Σ = Σ1 ∪ Σ2.
-        3.δ[(r1, r2), a] = [δ1(r1, a), δ2(r2, a)].
-        4.q0 is the pair (q1, q2).
-        5.F ={(r1,r2)|r1 ∈F1 orr2 ∈F2}.
-    ```
+    
+    **PRROF:** <br/>
+    
+    Let M<sub>1</sub> recognize A<sub>1</sub>, where M<sub>1</sub> = (Q<sub>1</sub>, Σ, δ<sub>1</sub>, q<sub>1</sub>, F<sub>1</sub>), <br/>
+    and M<sub>2</sub> recognize A<sub>2</sub>, where M<sub>2</sub> = (Q<sub>2</sub>, Σ, δ<sub>2</sub>, q<sub>2</sub>, F<sub>2</sub>).<br/>
+    Construct M to recognize A<sub>1</sub> ∪ A<sub>2</sub>, where M = (Q, Σ, δ, q<sub>0</sub>, F ).<br/>
+    1. Q = {(r<sub>1</sub>, r<sub>2</sub>)| r<sub>1</sub> ∈ Q<sub>1</sub> and r<sub>2</sub> ∈ Q2}.
+    2. Σ = Σ<sub>1</sub> ∪ Σ<sub>2</sub>.
+    3. δ[(r<sub>1</sub>, r<sub>2</sub>), a] = [δ<sub>1</sub>(r<sub>1</sub>, a), δ<sub>2</sub>(r<sub>2</sub>, a)].
+    4. q<sub>0</sub> is the pair (q<sub>1</sub>, q<sub>2</sub>).
+    5. F ={(r<sub>1</sub>,r<sub>2</sub>)|r<sub>1</sub> ∈F<sub>1</sub> or r<sub>2</sub> ∈F<sub>2</sub>}.
+    
 - The class of regular languages is closed under the concatenation operation.
+
+## 1.2 Nondeterminism
+
+### Deterministic vs. nondeterministic
+
+1. `Deterministic computation`: Determined next move.
+2. `Nondeterministic computation`: Several choices may exist for the next move.
+
+<br/>
+
+- `NFA`: Nondeterministic finite automata
+  > δ : Q × Σ<sub>ε → P(Q) is the transition function
+
+![](https://1.bp.blogspot.com/-s3ECtmK1LK8/VT4NoPUazRI/AAAAAAAApG0/UgHWODQyRqQ/s1600/擷取.PNG)
+<br/> 
+<br/>
+![](https://3.bp.blogspot.com/-G0C6SReom14/VT4OK1qS-tI/AAAAAAAApG8/HrCIkuG_pog/s1600/擷取2.PNG)
