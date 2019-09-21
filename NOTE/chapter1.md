@@ -73,3 +73,26 @@ A ◦ B = {xy | x ∈ A and y ∈ B};
 <br/> 
 <br/>
 ![](https://3.bp.blogspot.com/-G0C6SReom14/VT4OK1qS-tI/AAAAAAAApG8/HrCIkuG_pog/s1600/擷取2.PNG)
+
+### Equivalence of NFAs and DFAs
+- Every NFA has an equivalent DFA.
+  > Proof: 
+  <br/>
+
+  Let N = (Q, Σ, δ, q<sub>0</sub> , F ) be the NFA<br/>
+  M =(Q′,Σ,δ′,q<sub>0</sub>′,F′) be the DFA
+  1. Q′ = P(Q)
+  2. R ∈ Q′ and a ∈ Σ, let δ′(R, a) = {q ∈ Q| q ∈ δ(r, a) for some r ∈ R}.
+      >δ′(R, a) = U δ(r, a)
+  3. q<sub>0</sub>′ = {q<sub>0</sub>}.
+  4. F′ = {R ∈ Q′| R contains an accept state of N}.
+    > The notation U δ(r, a) means: the union of the sets δ(r, a) for each possible r in R.
+
+![](https://2.bp.blogspot.com/-XluxpL8zTew/VT4Y0amty8I/AAAAAAAApHQ/NJbSET8p8qY/s1600/擷取3.PNG)
+![](https://4.bp.blogspot.com/-DqlPUgRoVsE/VT4Y0ddDwtI/AAAAAAAApHM/TyX-hG52AZk/s1600/擷取4.PNG)
+
+### CLOSURE UNDER THE REGULAR OPERATIONS
+
+![](https://1.bp.blogspot.com/-2cJQISrVCGM/VT4boVlbLnI/AAAAAAAApHo/eqoTV6-TU7g/s1600/Union.PNG)
+![](https://1.bp.blogspot.com/-GiBouQ5amC4/VT4boeN16RI/AAAAAAAApHg/I3CrZy01b1I/s1600/concate.PNG)
+![](https://4.bp.blogspot.com/-yyFnAJABuww/VT4boXaRKsI/AAAAAAAApHk/u131TMGTYU8/s1600/star.PNG)
