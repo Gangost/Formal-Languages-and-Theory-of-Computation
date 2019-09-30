@@ -96,3 +96,43 @@ A ◦ B = {xy | x ∈ A and y ∈ B};
 ![](https://1.bp.blogspot.com/-2cJQISrVCGM/VT4boVlbLnI/AAAAAAAApHo/eqoTV6-TU7g/s1600/Union.PNG)
 ![](https://1.bp.blogspot.com/-GiBouQ5amC4/VT4boeN16RI/AAAAAAAApHg/I3CrZy01b1I/s1600/concate.PNG)
 ![](https://4.bp.blogspot.com/-yyFnAJABuww/VT4boXaRKsI/AAAAAAAApHk/u131TMGTYU8/s1600/star.PNG)
+  > add a accept state first because there are an empty language
+- **use ε to creat a matched NFA**
+
+## 1.3 Regular expression
+### Definition:
+```
+1. a for some a in the alphabet Σ [L(a) = {a}];
+2. ε [L(ε) = {ε}];
+3. ∅ [L(∅) = ∅];
+4. (R1 ∪ R2), where R1 and R2 are regular expressions [L(R1 ∪ R2) = L(R1) ∪ L(R2)];
+5. (R1 ◦ R2), where R1 and R2 are regular expressions [L(R1 ◦ R2) = L(R1) ◦ L(R2)];
+6. (R1∗), where R1 is a regular expression [L(R1∗) = (L(R1))∗].
+```
+![](https://1.bp.blogspot.com/-yojl8JiFh_E/VT4uH3gh47I/AAAAAAAApIM/yx-RLJhdKaw/s1600/擷取6.PNG)
+
+### Equivalence with Finite Automata
+  > Theorem : Every RE has an equivalent NFA
+
+A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗ and a sequenceof states q0, q1, · · · , qk exists such that
+1. q0 = qstart; 
+2. qk = qaccept;
+3. for each i, we have wi ∈ L(Ri), where Ri = δ(qi−1, qi).
+![](https://1.bp.blogspot.com/-w0qY8YS41uk/VT40AbTkAyI/AAAAAAAApIs/E_haffYvNeo/s1600/擷取.PNG)
+![](https://3.bp.blogspot.com/-48or1jOqRWs/VT40XpqR6HI/AAAAAAAApI0/xg_k9u4fBz4/s1600/擷取3.PNG)
+
+- [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對，很好用!
+
+## 1.4 Pumping Lemma
+ ### Pumping lemma: 
+  ```
+  If A is a regular language, then there is a number p (the pumping length) 
+  where, if s is any string in A of length at least p, then s may be divided 
+  into three pieces, s = xyz, satisfying the following conditions:
+  ```
+  1. for each i ≥ 0, xy<sup>i</sup>z ∈ A; 
+  1. |y| > 0;
+1. |xy| ≤ p.
+  
+  - nonregular language proof:
+  ![](https://2.bp.blogspot.com/-58o16BdMKnI/VT8ko5vpccI/AAAAAAAApcs/d9NkZOPMDv0/s1600/擷取2.PNG)
