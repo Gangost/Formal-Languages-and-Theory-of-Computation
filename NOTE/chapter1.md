@@ -1,11 +1,19 @@
-# *__Chapter1 <br/> Regular Language__*
 
-* [1.1 Finite Automata](#11-finite-automata)
+# _Chapter 1 Regular Language_
 
-* [1.2 Nondeterminism](#12-nondeterminism)
-* [1.3 Regular expression](#13-regular-expression)
-* [1.4 Pumping Lemma](#14-pumping-lemma)
-* [1.5  Closure Properties](#15-closure-properties)
+- [_Chapter 1 Regular Language_](#_chapter-1-regular-language_)
+  - [1.1 FINITE AUTOMATA](#11-finite-automata)
+    - [A finite automaton is a 5-tuple (Q, Σ, δ, q0, F ), where](#a-finite-automaton-is-a-5-tuple-q-Σ-δ-q0-f--where)
+    - [The Regular Operations](#the-regular-operations)
+  - [1.2 Nondeterminism](#12-nondeterminism)
+    - [Deterministic vs. nondeterministic](#deterministic-vs-nondeterministic)
+    - [Equivalence of NFAs and DFAs](#equivalence-of-nfas-and-dfas)
+    - [CLOSURE UNDER THE REGULAR OPERATIONS](#closure-under-the-regular-operations)
+  - [1.3 Regular expression](#13-regular-expression)
+    - [Definition:](#definition)
+    - [Equivalence with Finite Automata](#equivalence-with-finite-automata)
+  - [1.4 Pumping Lemma](#14-pumping-lemma)
+  - [1.5 Closure Properties](#15-closure-properties)
 
 ## 1.1 FINITE AUTOMATA
 
