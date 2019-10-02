@@ -1,5 +1,12 @@
 # *__Chapter1 <br/> Regular Language__*
 
+* [1.1 Finite Automata](#11-finite-automata)
+
+* [1.2 Nondeterminism](#12-nondeterminism)
+* [1.3 Regular expression](#13-regular-expression)
+* [1.4 Pumping Lemma](#14-pumping-lemma)
+* [1.5  Closure Properties](#15-closure-properties)
+
 ## 1.1 FINITE AUTOMATA
 
 ### A finite automaton is a 5-tuple (Q, Σ, δ, q0, F ), where
@@ -123,7 +130,7 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 
 - [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對
 
-## 1.4 Nonregular languages
+## 1.4 Pumping Lemma
  ### Pumping lemma: 
   ```
   If A is a regular language, then there is a number p (the pumping length) 
@@ -137,7 +144,7 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
   - nonregular language proof example:
   ![](https://2.bp.blogspot.com/-58o16BdMKnI/VT8ko5vpccI/AAAAAAAApcs/d9NkZOPMDv0/s1600/擷取2.PNG)
 
-  ```
+```
   How to use the pumping lemma:
 1. Assume the language, say, B, is regular in order to obtain a contradiction.
 2. By the pumping lemma, a pumping length p exists, and any string w ∈ B can be
@@ -147,6 +154,7 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 4. The contradiction is obtained, and therefore, B is
      proved to be nonregular.
 ```
+
 
 ## 1.5  Closure Properties
 
@@ -162,8 +170,9 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 - Homomorphism: h(A);
 - Inverse homomorphism: h−1(A).
 > Homomorphism: A string substitution such that each symbol is replaced by a single string. That is,
-<br/>
-h:Σ→Π<sup>∗</sup> .
+> 
+h:Σ→Π<sup>∗</sup>
+
 ```
 For example, for an alphabet Σ = { a, b, c }, one possi-bility might be
 Π = {0,1} 
@@ -173,5 +182,6 @@ h(c) = ε
 abba → 1101001011 
 abbcacc → 1101001011
 ```
+
 >  Inverse homomorphism:<br/>
 h−1(A⊆Π∗)={w | w∈Σ∗,h(w)∈A} .
