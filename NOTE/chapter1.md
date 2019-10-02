@@ -158,7 +158,7 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 
 ## 1.5  Closure Properties
 
-### Let A and B be regular languages. The results of the following operations are all regular languages:
+  ### Let A and B be regular languages. The results of the following operations are all regular languages:
 
 - Union: A ∪ B;
 - Concatenation: AB;
