@@ -121,9 +121,9 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 ![](https://1.bp.blogspot.com/-w0qY8YS41uk/VT40AbTkAyI/AAAAAAAApIs/E_haffYvNeo/s1600/擷取.PNG)
 ![](https://3.bp.blogspot.com/-48or1jOqRWs/VT40XpqR6HI/AAAAAAAApI0/xg_k9u4fBz4/s1600/擷取3.PNG)
 
-- [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對，很好用!
+- [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對
 
-## 1.4 Pumping Lemma
+## 1.4 Nonregular languages
  ### Pumping lemma: 
   ```
   If A is a regular language, then there is a number p (the pumping length) 
@@ -134,5 +134,44 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
   1. |y| > 0;
 1. |xy| ≤ p.
   
-  - nonregular language proof:
+  - nonregular language proof example:
   ![](https://2.bp.blogspot.com/-58o16BdMKnI/VT8ko5vpccI/AAAAAAAApcs/d9NkZOPMDv0/s1600/擷取2.PNG)
+
+  ```
+  How to use the pumping lemma:
+1. Assume the language, say, B, is regular in order to obtain a contradiction.
+2. By the pumping lemma, a pumping length p exists, and any string w ∈ B can be
+     pumped if |w| ≥ p.
+3. Find a string s ∈ B, |s| ≥ p, that s cannot be 
+    pumped as described in the pumping lemma.
+4. The contradiction is obtained, and therefore, B is
+     proved to be nonregular.
+```
+
+## 1.5  Closure Properties
+
+### Let A and B be regular languages. The results of the following operations are all regular languages:
+
+- Union: A ∪ B;
+- Concatenation: AB;
+- Star: A∗;
+- Intersection: A ∩ B;
+- Complement: A (i.e., Σ∗ − A);
+- Difference: A − B (A − B = A ∩ B); 
+- Reversal: AR;
+- Homomorphism: h(A);
+- Inverse homomorphism: h−1(A).
+> Homomorphism: A string substitution such that each symbol is replaced by a single string. That is,
+<br/>
+h:Σ→Π<sup>∗</sup> .
+```
+For example, for an alphabet Σ = { a, b, c }, one possi-bility might be
+Π = {0,1} 
+h(a) = 11 
+h(b) = 010 
+h(c) = ε
+abba → 1101001011 
+abbcacc → 1101001011
+```
+>  Inverse homomorphism:<br/>
+h−1(A⊆Π∗)={w | w∈Σ∗,h(w)∈A} .
