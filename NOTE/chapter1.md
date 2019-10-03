@@ -1,9 +1,9 @@
 
 # _Chapter 1 Regular Language_
 
-- [_Chapter 1 Regular Language_](#_chapter-1-regular-language_)
+- [_Chapter 1 Regular Language_](#chapter-1-regular-language)
   - [1.1 FINITE AUTOMATA](#11-finite-automata)
-    - [A finite automaton is a 5-tuple (Q, Σ, δ, q0, F ), where](#a-finite-automaton-is-a-5-tuple-q-Σ-δ-q0-f--where)
+    - [A finite automaton is a 5-tuple (Q, Σ, δ, q0, F ), where](#a-finite-automaton-is-a-5-tuple-q-%ce%a3-%ce%b4-q0-f--where)
     - [The Regular Operations](#the-regular-operations)
   - [1.2 Nondeterminism](#12-nondeterminism)
     - [Deterministic vs. nondeterministic](#deterministic-vs-nondeterministic)
@@ -14,6 +14,11 @@
     - [Equivalence with Finite Automata](#equivalence-with-finite-automata)
   - [1.4 Pumping Lemma](#14-pumping-lemma)
   - [1.5 Closure Properties](#15-closure-properties)
+  - [1.6 Myhill-Nerode Theorem](#16-myhill-nerode-theorem)
+    - [Indistinguishable:](#indistinguishable)
+    - [Myhill-Nerode theorem:](#myhill-nerode-theorem)
+  - [1.7 Minimization of DFAs](#17-minimization-of-dfas)
+    - [Table-filling Algorithm](#table-filling-algorithm)
 
 ## 1.1 FINITE AUTOMATA
 
@@ -136,7 +141,6 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
 ![](https://1.bp.blogspot.com/-w0qY8YS41uk/VT40AbTkAyI/AAAAAAAApIs/E_haffYvNeo/s1600/擷取.PNG)
 ![](https://3.bp.blogspot.com/-48or1jOqRWs/VT40XpqR6HI/AAAAAAAApI0/xg_k9u4fBz4/s1600/擷取3.PNG)
 
-- [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對
 
 ## 1.4 Pumping Lemma
  ### Pumping lemma: 
@@ -146,7 +150,7 @@ A GNFA accepts a string w in Σ∗ if w = w1w2 ···wk, where each wi ∈ Σ∗
   into three pieces, s = xyz, satisfying the following conditions:
   ```
   1. for each i ≥ 0, xy<sup>i</sup>z ∈ A; 
-  1. |y| > 0;
+  2. |y| > 0;
 1. |xy| ≤ p.
   
   - nonregular language proof example:
@@ -193,3 +197,63 @@ abbcacc → 1101001011
 
 >  Inverse homomorphism:<br/>
 h−1(A⊆Π∗)={w | w∈Σ∗,h(w)∈A} .
+
+## 1.6 Myhill-Nerode Theorem
+
+### Indistinguishable:
+
+Let x and y be strings and L be any language.
+We say that x and y are **distinguishable** by L if some string z exists whereby exactly 
+one of the strings xz and yz is a member of L;
+otherwise, for every string z, we have xz ∈ L whenever yz ∈ L and we say that x 
+and y are **indistinguishable** by L.
+
+
+- If x and y are indistinguishable by L we write x ≡<sub>L</sub> y.
+  > In other words, for x,y ∈ Σ∗,<br>
+  x≡<sub>L</sub> y iff foreach z∈Σ∗ : xz∈L ⇔ yz∈L.
+
+- ≡<sub>L</sub> is an equivlance relation because obviously
+  1. Reflexive: x ≡<sub>L</sub> x;
+  2. Symmetric: x ≡<sub>L</sub> y ⇒ y ≡<sub>L</sub> x;
+  3. Transitive: x ≡<sub>L</sub> y ∧ y ≡L z ⇒ x ≡<sub>L</sub> z.
+  
+- For example, Σ = {0,1}. Let L<sub>0</sub> = {0<sup>n</sup> | n>0}, and define ≡L<sub>0</sub> by using L<sub>0</sub>. We have
+  -  0 ≡L<sub>0</sub> 000 
+  -  11 ≡L<sub>0</sub> 101 
+  -  ε ~~\≡~~L<sub>0</sub> 00
+
+### Myhill-Nerode theorem:
+```
+Let L be a language and let X be a set of strings. 
+Say that X is pairwise dis-tinguishable by L if every
+two distinct strings in X are distinguishable by L.
+```
+  > **Index of L:**<br/>
+  maximum number of elements in any set that is pair- wise distinguishable by L.
+1. If L is recognized by a DFA with k states, L has index at most k.
+2. If the index of L is a finite number k, it is recognized by a DFA with k states.
+3. L is regular iff it has finite index. Moreover, its index is the size of the smallest DFA recognizing it.
+- **How to use Myhill-Nerode theorem:**
+  1. Given a langauge B, construct the equivalence rela- tion ≡B by using B.
+  2. Prove that B has finite or infinite index: 
+     -  Finite: B is a regular language.
+     - Infinite: B is not a regular language.
+> Myhill-Nerode theorem is better than pumping lemma to prove a language is regular
+
+## 1.7 Minimization of DFAs
+- **Equivalent states:**
+  > State p and state q are said to be equivalent if for all w ∈ Σ∗, δˆ(p,w) ∈ F ⇔ δˆ(q,w) ∈ F; and distinguishable otherwise.
+
+### Table-filling Algorithm
+**DFA A = (Q, Σ, δ, q0, F )**
+
+- **Basis:** If p∈F and q/∈F,{p,q} is distinguishable.
+- **Induction step:** If { r, s } is distinguishable, and<br/>
+  r = δ(p, a) <br/> s = δ(q, a) <br/>
+  for some a ∈ Σ, then { p, q } is distinguishable.
+**Examples:**
+![](https://3.bp.blogspot.com/-a6d9maAf3yc/VT_CEpa-eAI/AAAAAAAApdE/bxlmfJBky4g/s1600/擷取.PNG)
+![](https://1.bp.blogspot.com/-ZXfv-ANrGGs/VT_GQl90-CI/AAAAAAAApdQ/Ro86aP8VfcI/s1600/擷取2.PNG)
+
+<!-- page 17 -->
