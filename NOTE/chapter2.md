@@ -1,9 +1,14 @@
 # _Chapter 2 Context-Free Languages_
-- [_Chapter 2 Context-Free Languages_](#chapter-2-context-free-languages)
+- [_Chapter 2 Context-Free Languages_](#_chapter-2-context-free-languages_)
   - [2.1 Context-Free Grammars (CFGs)](#21-context-free-grammars-cfgs)
     - [Definition](#definition)
     - [Ambiguity](#ambiguity)
     - [Chomsky Normal Form](#chomsky-normal-form)
+  - [2.2 Pushdown Automata (PDAs)](#22-pushdown-automata-pdas)
+    - [Equivalence with CFGs](#equivalence-with-cfgs)
+    - [PDAs 轉 CFGs](#pdas-轉-cfgs)
+  - [2.3 Non-Context-Free Languages](#23-non-context-free-languages)
+    - [Pumping Lemma for CFLs](#pumping-lemma-for-cfls)
 
 ## 2.1 Context-Free Grammars (CFGs)
 
@@ -57,3 +62,64 @@ we permit the rule S → ε, where S is the start variable.
 ![](https://2.bp.blogspot.com/-wxJfpOpZCBY/VUBt0HVZI0I/AAAAAAAApeE/sD9wlQ71dOI/s1600/ch1.PNG)
 ![](https://1.bp.blogspot.com/-Z4AvkXZE_BU/VUBt0K5k84I/AAAAAAAApeA/tNn-_p2MODc/s1600/ch2.PNG)
 ![](https://2.bp.blogspot.com/-Ki7eXRy5kzE/VUBt0E2UcYI/AAAAAAAApd8/E_Xwsc-AuW0/s1600/ch3.PNG)
+
+## 2.2 Pushdown Automata (PDAs)
+
+A pushdown automaton is a 6-tuple (Q, Σ, Γ, δ, q0, F ), where Q, Σ, Γ, and F are all finite sets, and
+1. Q is the set of states;
+2. Σ is the input alphabet;
+3. Γ is the stack alphabet;
+4. δ : Q×Σε ×Γε → P(Q×Γε) is the transition
+function;
+1. q0 ∈ Q is the start state;
+2. F ⊆ Q is the set of accept states.
+
+- a,b→c 代表的意思是 : [新吃進來的符號] , [堆疊最上的符號] → [放進堆疊的符號]
+- $：當作堆疊是否為空的判斷
+  
+![](https://1.bp.blogspot.com/-e2X1dJ_1fw4/VUCFxZbCkLI/AAAAAAAApew/1vmogY_lajo/s1600/pda1.PNG)
+![](https://3.bp.blogspot.com/-Lq-chx4noxI/VUCI5-hAH6I/AAAAAAAApfA/u_fMujNn7O4/s1600/pda2.PNG)
+
+### Equivalence with CFGs
+
+A language is context free if and only if some pushdown automaton recognizes it.
+
+**Proof:**
+![](https://4.bp.blogspot.com/-tqY7VAYncCM/VUCSiyRCedI/AAAAAAAApfQ/bpkN0guiCnU/s1600/pda3.PNG)
+
+### PDAs 轉 CFGs
+
+1. V ={Apq |p,q∈Q}
+   > V ={Apq |p,q∈Q}
+2. S = Aq0,qaccept
+3. R contains the following three sets of rules:
+  - For each p,q,r,s ∈ Q, t ∈ Γ, and a,b ∈ Σε, if
+    (r,t) ∈ δ(p,a,ε) and (q,ε) ∈ δ(s,b,t), the rule
+
+    A<sub>pq</sub> → aA<sub>rs</sub>b
+  -  For each p,q,r ∈ Q, the rule
+
+      A<sub>pq</sub> → A<sub>pr</sub>A<sub>rq</sub>
+  - Foreachp∈Q,theruleApp →ε
+
+![](https://2.bp.blogspot.com/-oCnd3BdUFcM/VUCXb-imhHI/AAAAAAAApfk/EJa4WEFhGOk/s1600/pda4.PNG)
+![](https://3.bp.blogspot.com/-ir0jHeQtRQY/VUCXb1yDNYI/AAAAAAAApfg/36qRDaSUp2E/s1600/pda5.PNG)
+
+## 2.3 Non-Context-Free Languages
+
+### Pumping Lemma for CFLs
+
+If A is a context-free language, then there is a number p (the pumping length) where, if s is any string in A of length at least p, then s may be divided into five pieces, s = uvxyz satisfying the conditions
+1. for each i ≥ 0,uv<sup>i</sup>xyi<sup>i</sup>z ∈ A; 
+2. |vy| > 0;
+3. |vxy| ≤ p.
+
+![](https://4.bp.blogspot.com/-830sgsawHjA/VUEcoQVn5XI/AAAAAAAApg0/-pATYkZzrhU/s1600/1.PNG)
+
+![](https://1.bp.blogspot.com/-1PDlBdpweps/VUEcoWlHijI/AAAAAAAApg4/4p4IoyeEvTg/s1600/2.PNG)
+
+How to use the pumping lemma for CFLs:
+1. Assume the language, say, B, is context free in order to obtain a contradiction.
+2. By the pumping lemma for CFLs, a pumping length p exists, and any string w ∈ B can be pumped if |w| ≥ p.
+3. Find a string s ∈ B, |s| ≥ p, that s cannot be pumped as described in the pumping lemma.
+4. The contradiction is obtained, and therefore, B is proved to be non-context-free.
