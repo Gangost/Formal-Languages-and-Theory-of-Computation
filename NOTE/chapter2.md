@@ -9,6 +9,10 @@
     - [PDAs 轉 CFGs](#pdas-轉-cfgs)
   - [2.3 Non-Context-Free Languages](#23-non-context-free-languages)
     - [Pumping Lemma for CFLs](#pumping-lemma-for-cfls)
+    - [Ogden’s Lemma for CFLs](#ogdens-lemma-for-cfls)
+    - [Ogden’s Lemma for CFGs](#ogdens-lemma-for-cfgs)
+  - [2.4 Properties of CFLs](#24-properties-of-cfls)
+    - [Membership Test: CYK Algorithm](#membership-test-cyk-algorithm)
 
 ## 2.1 Context-Free Grammars (CFGs)
 
@@ -123,3 +127,40 @@ How to use the pumping lemma for CFLs:
 2. By the pumping lemma for CFLs, a pumping length p exists, and any string w ∈ B can be pumped if |w| ≥ p.
 3. Find a string s ∈ B, |s| ≥ p, that s cannot be pumped as described in the pumping lemma.
 4. The contradiction is obtained, and therefore, B is proved to be non-context-free.
+
+### Ogden’s Lemma for CFLs
+
+Ogden’s lemma for context-free languages: If A is a context-free language, then there is a number p where, if s is any string in A of length at least p, in which we select any p or more positions to be distinguished, then s may be divided into five pieces, s = uvxyz satisfying the conditions
+
+1. for each i ≥ 0,uvixyiz ∈ A;
+2. vy has at least one distinguished positions; 
+3. vxy has at most p distinguished positions.
+
+### Ogden’s Lemma for CFGs
+
+Let G be a CFG. There exists a natural num- ber p (depending on G) such that for all s ∈ L(G), if s is marked so that it has p or more distinguished positions, then there exists a variable A and terminal strings u, v, x, y, z satisfying the following conditions:
+
+1. s = uvxyz;
+2. either v or y has distinguished positions;
+3. vxy has no more than p distinguished positions; 
+4. S⇒∗ uAz;
+5. A⇒∗ vAy;
+6. A⇒∗ x;
+1. for each i ≥ 0, A ⇒ v xy .
+
+## 2.4 Properties of CFLs
+
+### Membership Test: CYK Algorithm
+
+1. Let G = (V, Σ, R, S) is the context-free grammar for L in Chomsky normal form.
+2. The input string w = a1a2 ···an is of length n.
+3. Construct the table with horizontal axis (i) being the positions of the symbols in w, Xij is the set of variables A such that A ⇒∗ aiai+1 · · · aj. We ask
+whether S ∈ X1n (i.e., S ⇒∗ a1a2 ···an.)
+
+![](https://i.imgur.com/Jx9cTFu.png)
+
+Basis: Xii is the set of variables A such that A → ai can be found in the rule.
+Induction step: Xij contains A if we can find vari- ables B and C, and integer k such that
+1. i ≤ k < j ; 2.BisinXik ;
+3. C is in Xk+1,j ;
+4. A → BC is a rule.
