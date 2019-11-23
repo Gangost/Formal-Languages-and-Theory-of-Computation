@@ -6,7 +6,9 @@
 
 - _[Chapter3 - The Church-Turing Thesis](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter3.md)_
 
-- - _[Chapter4 - Decidability](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter4.md)_
+- _[Chapter4 - Decidability](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter4.md)_
+
+- _[Chapter5 - Reducibility](https://github.com/Gangost/Formal-Languages-and-Theory-of-Computation/tree/master/NOTE/chapter5.md)_
 
 ### Tools You Can Use:
 - [Regular expression visualizer:](http://regexvisualizer.apphb.com/)這個網站可以驗證妳的RE轉DFA有沒有寫對
