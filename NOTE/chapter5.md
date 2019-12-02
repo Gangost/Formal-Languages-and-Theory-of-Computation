@@ -1,6 +1,8 @@
 # _Chapter 5 Reducibility_
-- [_Chapter 5 Reducibility_](#_chapter-5-reducibility_)
+- [_Chapter 5 Reducibility_](#chapter-5-reducibility)
   - [Undecidable Problems from Language Theory](#undecidable-problems-from-language-theory)
+  - [Mapping Reducibility](#mapping-reducibility)
+    - [Formal Definition of Mapping Reducibility](#formal-definition-of-mapping-reducibility)
 
 If problem A reduces to problem B, we can use a so- lution to B to solve A. Reducibility says NOTHING about solving A or B alone.
 
@@ -64,3 +66,30 @@ PCP = {⟨P⟩|P is a collection of dominoes with a match} is undecidable.
 ![](https://i.imgur.com/rHU5RUd.png)
 ![](https://i.imgur.com/o7ozOWg.png)
 ![](https://i.imgur.com/DtxN2bc.png)
+
+## Mapping Reducibility
+
+```
+A function f : Σ∗ → Σ∗ is a computable 
+function if some Turing machine M, on every input w,
+ halts with just f(w) on its tape.
+```
+
+### Formal Definition of Mapping Reducibility
+
+Language A is mapping reducible to language B, written A ≤m B, if there is a computable function f : Σ∗ → Σ∗, where for every w,
+```
+w ∈ A ⇔ f(w) ∈ B .
+```
+
+```
+If A ≤m B and B is decidable, then A is decidable.
+
+If A ≤m B and A is undecidable, then B is undecidable.
+
+If A ≤m B and B is Turing-recognizable,then A 
+is Turing-recognizable.
+
+If A ≤m B and A is not Turing- recognizable,
+then B is not Turing-recognizable.
+```
